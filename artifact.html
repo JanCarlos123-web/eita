@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jan Carlos — Ficha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;600;800;900&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0506;
+    --card:#14090a;
+    --line:#3a1216;
+    --red:#e11d2e;
+    --red-bright:#ff3b4a;
+    --red-deep:#6d0b15;
+    --gold:#f0b03c;
+    --ink:#f6eaea;
+    --muted:#a68c8d;
+    --cut:76px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html,body{height:100%}
+
+  body{
+    background:
+      radial-gradient(900px 600px at 12% -10%, rgba(225,29,46,.22), transparent 60%),
+      radial-gradient(700px 500px at 110% 120%, rgba(109,11,21,.35), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Spectral',Georgia,serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(16px,4vw,56px);
+    min-height:100%;
+  }
+
+  .card{
+    position:relative;
+    width:min(880px,100%);
+    background:linear-gradient(160deg,#1a0b0d 0%,var(--card) 45%,#0d0607 100%);
+    border:1px solid var(--line);
+    clip-path:polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+    padding:clamp(28px,5vw,56px);
+    overflow:hidden;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,59,74,.05) inset;
+  }
+
+  /* linha diagonal do corte */
+  .card::after{
+    content:"";
+    position:absolute;
+    top:0; right:0;
+    width:var(--cut);
+    height:var(--cut);
+    background:linear-gradient(135deg,transparent 48%,var(--red) 49%,var(--red) 52%,transparent 53%);
+    opacity:.85;
+    pointer-events:none;
+  }
+
+  /* textura discreta */
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px);
+    pointer-events:none;
+  }
+
+  .topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    font-family:'Saira Condensed',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .topo .id{color:var(--red-bright)}
+
+  .nome{
+    font-family:'Saira Condensed',sans-serif;
+    font-weight:900;
+    line-height:.82;
+    letter-spacing:-.015em;
+    margin:clamp(22px,4vw,38px) 0 0;
+    text-transform:uppercase;
+  }
+
+  .nome .linha1{
+    display:block;
+    font-size:clamp(3.6rem,15vw,8.6rem);
+    color:var(--red);
+    text-shadow:0 0 42px rgba(225,29,46,.45);
+  }
+
+  .nome .linha2{
+    display:block;
+    font-size:clamp(2.6rem,11vw,6.4rem);
+    color:transparent;
+    -webkit-text-stroke:2px var(--red-deep);
+    text-stroke:2px var(--red-deep);
+    margin-left:.06em;
+  }
+
+  .resumo{
+    font-style:italic;
+    color:var(--muted);
+    font-size:clamp(.98rem,2.2vw,1.12rem);
+    margin-top:20px;
+    max-width:52ch;
+    line-height:1.6;
+  }
+
+  .energia{
+    margin:clamp(26px,4vw,38px) 0 clamp(26px,4vw,40px);
+  }
+
+  .energia .rotulo{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Saira Condensed',sans-serif;
+    font-size:.68rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+
+  .energia .rotulo b{color:var(--red-bright);font-weight:600}
+
+  .barra{
+    display:flex;
+    gap:5px;
+    height:14px;
+  }
+
+  .seg{
+    flex:1;
+    background:var(--red-deep);
+    transform-origin:bottom;
+    animation:acender .5s ease backwards;
+  }
+
+  .seg:nth-child(n+11){
+    background:var(--gold);
+    box-shadow:0 0 14px rgba(240,176,60,.4);
+  }
+
+  .seg:nth-child(1){animation-delay:.05s}
+  .seg:nth-child(2){animation-delay:.1s}
+  .seg:nth-child(3){animation-delay:.15s}
+  .seg:nth-child(4){animation-delay:.2s}
+  .seg:nth-child(5){animation-delay:.25s}
+  .seg:nth-child(6){animation-delay:.3s}
+  .seg:nth-child(7){animation-delay:.35s}
+  .seg:nth-child(8){animation-delay:.4s}
+  .seg:nth-child(9){animation-delay:.45s}
+  .seg:nth-child(10){animation-delay:.5s}
+  .seg:nth-child(11){animation-delay:.55s}
+  .seg:nth-child(12){animation-delay:.6s}
+  .seg:nth-child(13){animation-delay:.65s}
+  .seg:nth-child(14){animation-delay:.7s}
+
+  @keyframes acender{
+    from{transform:scaleY(.15);opacity:0}
+    to{transform:scaleY(1);opacity:1}
+  }
+
+  .areas{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);
+  }
+
+  .area{
+    position:relative;
+    padding:26px 22px 4px;
+    border-left:1px solid var(--line);
+    transition:background .25s ease;
+  }
+
+  .area:first-child{border-left:0;padding-left:0}
+
+  .area:hover{background:linear-gradient(180deg,rgba(225,29,46,.09),transparent 70%)}
+
+  .area .icone{
+    width:34px;
+    height:34px;
+    stroke:var(--red-bright);
+    fill:none;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    margin-bottom:16px;
+  }
+
+  .area h3{
+    font-family:'Saira Condensed',sans-serif;
+    font-size:1.06rem;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+
+  .area h3::after{
+    content:"";
+    display:block;
+    width:22px;
+    height:2px;
+    background:var(--red);
+    margin-top:10px;
+    transition:width .3s ease;
+  }
+
+  .area:hover h3::after{width:100%}
+
+  .area p{
+    font-size:.9rem;
+    line-height:1.62;
+    color:var(--muted);
+  }
+
+  @media (max-width:720px){
+    .areas{grid-template-columns:1fr}
+    .area{
+      border-left:0;
+      border-top:1px solid var(--line);
+      padding:22px 0 4px;
+    }
+    .area:first-child{border-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+  <article class="card">
+
+    <header class="topo">
+      <span class="id">Ficha 01</span>
+      <span>Perfil</span>
+    </header>
+
+    <h1 class="nome">
+      <span class="linha1">Jan</span>
+      <span class="linha2">Carlos</span>
+    </h1>
+
+    <p class="resumo">Jogos, animes e luta. Três frentes, uma só teimosia: repetir até sair certo.</p>
+
+    <section class="energia" aria-label="Nível de energia">
+      <div class="rotulo">
+        <span>Energia</span>
+        <b>Alta</b>
+      </div>
+      <div class="barra">
+        <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+        <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+        <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+        <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+        <div class="seg"></div><div class="seg"></div>
+      </div>
+    </section>
+
+    <div class="areas">
+
+      <section class="area">
+        <svg class="icone" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="9" r="3.4"/>
+          <path d="M16 12.4V21"/>
+          <path d="M7 21h18l-2.4 6H9.4z"/>
+          <circle cx="10.5" cy="24" r="1.3"/>
+          <circle cx="14.6" cy="24" r="1.3"/>
+          <path d="M18.6 23.4h3.4"/>
+          <path d="M19.2 25.6h2.2"/>
+        </svg>
+        <h3>Jogos</h3>
+        <p>Arcade, campanha longa ou ranked. O controle não esfria e o "só mais uma" nunca é a última.</p>
+      </section>
+
+      <section class="area">
+        <svg class="icone" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M2.5 16c4-6.2 8.4-9.3 13.5-9.3S25.5 9.8 29.5 16c-4 6.2-8.4 9.3-13.5 9.3S6.5 22.2 2.5 16z"/>
+          <circle cx="16" cy="16" r="4"/>
+          <circle cx="17.4" cy="14.6" r="1.1"/>
+        </svg>
+        <h3>Animes</h3>
+        <p>Maratona, abertura que não é pulada e aquela lista de "assistir depois" que só cresce.</p>
+      </section>
+
+      <section class="area">
+        <svg class="icone" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M11 7.5c0-1.4 1.1-2.5 2.5-2.5h5c1.4 0 2.5 1.1 2.5 2.5"/>
+          <path d="M11 7.5c-3.4.9-5.5 3.8-5.5 7.6 0 2.4.6 4.6 1.6 6.4"/>
+          <path d="M21 7.5c3.4.9 5.5 3.8 5.5 7.6 0 2.4-.6 4.6-1.6 6.4"/>
+          <path d="M7.1 21.5c2.6 1.6 5.6 2.4 8.9 2.4s6.3-.8 8.9-2.4"/>
+          <path d="M16 23.9V29"/>
+        </svg>
+        <h3>Luta</h3>
+        <p>Artes marciais: base, guarda e repetição. O que se aprende no tatame não fica no tatame.</p>
+      </section>
+
+    </div>
+
+  </article>
+
+</body>
+</html>
